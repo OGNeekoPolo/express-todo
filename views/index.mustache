@@ -6,17 +6,21 @@
     <title></title>
   </head>
   <body>
-    <form action="/" method="post">
+    <form action="/create" method="post">
       <h1>ToDo List</h1>
       <input type="text" name="todo" placeholder="Add a todo...">
       <button type="submit">Add ToDo</button>
-      <hr>
+    </form>
+    <hr>
+    <form method="post" action="/complete">
       <h1>Tasks</h1>
       <ul name="list">
         {{#todos}}
         <li>
-          {{.}}
-          <button type="submit" formaction="/complete" formmethod="post">Mark As Complete</button>
+          {{title}}
+          <button type="submit" name="todo" value="{{id}}">
+            Mark As Complete
+          </button>
         </li>
         {{/todos}}
       </ul>
